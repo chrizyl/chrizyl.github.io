@@ -125,7 +125,12 @@ img { max-width: 100%; }
   cursor: pointer;
   flex-shrink: 0;
   pointer-events: auto;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
   transition: background var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
+}
+.theme-toggle i {
+  pointer-events: none;
 }
 .theme-toggle:hover {
   background: var(--rose);

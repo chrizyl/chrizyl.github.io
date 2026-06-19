@@ -71,6 +71,8 @@ function initThemeToggle() {
         return;
     }
 
+    let lastToggleTime = 0;
+
     function updateToggle(isDark) {
         toggles.forEach(toggle => {
             const icon = toggle.querySelector('i');
@@ -83,21 +85,37 @@ function initThemeToggle() {
         });
     }
 
+    function switchTheme(event) {
+        const toggle = event.target.closest('[data-theme-toggle]');
+
+        if (!toggle) {
+            return;
+        }
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        const now = Date.now();
+
+        if (now - lastToggleTime < 250) {
+            return;
+        }
+
+        lastToggleTime = now;
+        const isDark = document.documentElement.classList.toggle('dark-mode');
+
+        try {
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        } catch (error) {
+            // Theme still changes even if the browser blocks storage.
+        }
+
+        updateToggle(isDark);
+    }
+
     updateToggle(document.documentElement.classList.contains('dark-mode'));
-
-    toggles.forEach(toggle => {
-        toggle.addEventListener('click', () => {
-            const isDark = document.documentElement.classList.toggle('dark-mode');
-
-            try {
-                localStorage.setItem('theme', isDark ? 'dark' : 'light');
-            } catch (error) {
-                // Theme still changes even if the browser blocks storage.
-            }
-
-            updateToggle(isDark);
-        });
-    });
+    document.addEventListener('click', switchTheme, true);
+    document.addEventListener('touchend', switchTheme, true);
 }
 
 function initNavigation() {
