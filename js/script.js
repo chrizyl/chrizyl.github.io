@@ -65,26 +65,38 @@ function initPortfolio() {
 }
 
 function initThemeToggle() {
-    const toggle = document.getElementById('theme-toggle');
+    const toggles = document.querySelectorAll('[data-theme-toggle]');
 
-    if (!toggle) {
+    if (!toggles.length) {
         return;
     }
 
-    const icon = toggle.querySelector('i');
-
     function updateToggle(isDark) {
-        toggle.setAttribute('aria-pressed', String(isDark));
-        toggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
-        icon.className = isDark ? 'bi bi-sun-fill' : 'bi bi-moon-stars-fill';
+        toggles.forEach(toggle => {
+            const icon = toggle.querySelector('i');
+            toggle.setAttribute('aria-pressed', String(isDark));
+            toggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+
+            if (icon) {
+                icon.className = isDark ? 'bi bi-sun-fill' : 'bi bi-moon-stars-fill';
+            }
+        });
     }
 
     updateToggle(document.documentElement.classList.contains('dark-mode'));
 
-    toggle.addEventListener('click', () => {
-        const isDark = document.documentElement.classList.toggle('dark-mode');
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        updateToggle(isDark);
+    toggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.toggle('dark-mode');
+
+            try {
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            } catch (error) {
+                // Theme still changes even if the browser blocks storage.
+            }
+
+            updateToggle(isDark);
+        });
     });
 }
 
