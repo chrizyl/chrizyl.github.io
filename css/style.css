@@ -996,9 +996,12 @@ textarea.form-input { resize: vertical; min-height: 130px; }
 .footer-link:hover { color: var(--rose); transform: translateY(-3px) scale(1.15); }
 
 @media (max-width: 991.98px) {
+  .hero-section { padding: 6rem 0 4rem; }
+  .hero-section .min-vh-100 { min-height: auto !important; }
   .hero-avatar-wrap { width: 240px; height: 240px; }
   .hero-avatar-placeholder { width: 240px; height: 240px; font-size: 6rem; }
   .hero-avatar-ring { inset: -10px; }
+  .scroll-hint { display: none; }
   .about-stat-card { display: none; }
   .section-pad { padding: 70px 0; }
   .hero-text-col { text-align: center; }
@@ -1008,7 +1011,7 @@ textarea.form-input { resize: vertical; min-height: 130px; }
 
 @media (max-width: 575.98px) {
   .hero-name { font-size: 3rem; }
-  .hero-img-col { margin-top: 1.5rem; }
+  .hero-img-col { margin-top: 1.5rem; padding-top: 1rem; padding-bottom: 1.5rem; }
   .contact-form-card { padding: 1.5rem; }
   .hero-badge { right: 0; font-size: 0.75rem; padding: 0.45rem 0.85rem; }
   .stats-strip .stat-item .big-num { font-size: 2rem; }
