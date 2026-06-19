@@ -57,10 +57,35 @@ function initPortfolio() {
     });
 
     initNavigation();
+    initThemeToggle();
     initTyping();
     initRevealAnimations();
     initSkillBars();
     initStats();
+}
+
+function initThemeToggle() {
+    const toggle = document.getElementById('theme-toggle');
+
+    if (!toggle) {
+        return;
+    }
+
+    const icon = toggle.querySelector('i');
+
+    function updateToggle(isDark) {
+        toggle.setAttribute('aria-pressed', String(isDark));
+        toggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+        icon.className = isDark ? 'bi bi-sun-fill' : 'bi bi-moon-stars-fill';
+    }
+
+    updateToggle(document.documentElement.classList.contains('dark-mode'));
+
+    toggle.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.toggle('dark-mode');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        updateToggle(isDark);
+    });
 }
 
 function initNavigation() {

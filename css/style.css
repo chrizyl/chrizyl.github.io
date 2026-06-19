@@ -17,6 +17,18 @@
   --ease-spring: cubic-bezier(.34,1.56,.64,1);
 }
 
+html.dark-mode {
+  --blush:   #180912;
+  --rose:    #ffb7ca;
+  --pink:    #6f3044;
+  --white:   #2a111c;
+  --dark:    #ffe9f0;
+  --mid:     #f8cdda;
+  --muted:   #d9a6b8;
+  --shadow-soft:  0 4px 24px rgba(255,183,202,0.16);
+  --shadow-card:  0 10px 42px rgba(0,0,0,0.35);
+}
+
 *, *::before, *::after { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
@@ -28,6 +40,7 @@ body {
   line-height: 1.7;
   overflow-x: hidden;
   cursor: none;
+  transition: background-color var(--transition), color var(--transition);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -93,6 +106,27 @@ img { max-width: 100%; }
 .btn-outline-rose:hover {
   background: var(--rose);
   color: var(--white);
+}
+
+.theme-toggle {
+  width: 42px;
+  height: 42px;
+  border: 1.5px solid var(--pink);
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--rose);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  box-shadow: var(--shadow-soft);
+  transition: background var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
+}
+.theme-toggle:hover {
+  background: var(--rose);
+  border-color: var(--rose);
+  color: var(--white);
+  transform: translateY(-2px);
 }
 
 
@@ -170,6 +204,15 @@ body:has(button:hover) #cursor-ring {
   border-bottom-color: var(--pink);
   padding: 0.65rem 0;
   box-shadow: 0 2px 20px rgba(229,179,193,0.15);
+}
+html.dark-mode #mainNav {
+  background: rgba(24,9,18,0.78);
+  border-bottom-color: rgba(255,183,202,0.1);
+}
+html.dark-mode #mainNav.nav-scrolled {
+  background: rgba(24,9,18,0.96);
+  border-bottom-color: var(--pink);
+  box-shadow: 0 2px 22px rgba(0,0,0,0.32);
 }
 
 .navbar-brand {
@@ -968,6 +1011,39 @@ a.contact-value:hover { color: var(--rose); }
 .form-input::placeholder { color: #b9a0a8; }
 textarea.form-input { resize: vertical; min-height: 130px; }
 
+html.dark-mode .blob-1,
+html.dark-mode .blob-2,
+html.dark-mode .blob-3 {
+  opacity: 0.18;
+}
+html.dark-mode .section-tag,
+html.dark-mode .tool-chip,
+html.dark-mode .stag {
+  background: rgba(255,183,202,0.12);
+  border-color: rgba(255,183,202,0.28);
+}
+html.dark-mode .hero-avatar-placeholder,
+html.dark-mode .about-img-card,
+html.dark-mode .skill-icon,
+html.dark-mode .testi-avatar,
+html.dark-mode .contact-icon {
+  background: linear-gradient(135deg, #6f3044, var(--rose));
+}
+html.dark-mode .project-type-badge {
+  background: rgba(42,17,28,0.9);
+}
+html.dark-mode .project-overlay {
+  background: rgba(111,48,68,0.9);
+}
+html.dark-mode .form-input::placeholder {
+  color: #b98296;
+}
+html.dark-mode .site-footer {
+  background: #10060c;
+}
+html.dark-mode .site-footer .footer-brand {
+  color: var(--dark);
+}
 
 .site-footer {
   background: var(--dark);
@@ -1002,6 +1078,7 @@ textarea.form-input { resize: vertical; min-height: 130px; }
   .hero-avatar-placeholder { width: 240px; height: 240px; font-size: 6rem; }
   .hero-avatar-ring { inset: -10px; }
   .scroll-hint { display: none; }
+  .theme-toggle { margin-top: 0.5rem; }
   .about-stat-card { display: none; }
   .section-pad { padding: 70px 0; }
   .hero-text-col { text-align: center; }
