@@ -107,7 +107,6 @@ function initThemeToggle() {
         try {
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
         } catch (error) {
-            // Theme still changes even if the browser blocks storage.
         }
 
         updateToggle(isDark);
