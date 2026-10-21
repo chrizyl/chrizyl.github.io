@@ -58,9 +58,9 @@ document.fonts?.ready.then(placeLetters);
 new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { placeLetters(); env.classList.add('open'); o.disconnect(); } }), { threshold: .6 }).observe(env);
 
 const folders = [
- { title: "Web Development", alt: false, desc: "A full-screen responsive Bento Grid advertisement built with Bootstrap, plus a Figma-designed personal portfolio.", tags: ["HTML5", "CSS3", "Bootstrap 5"], count: "3 projects",
+ { title: "Web Development", alt: false, desc: "Responsive Bootstrap layouts and a simple website with JSON integration.", tags: ["HTML5", "CSS3", "Bootstrap 5", "JSON"], count: "3 projects",
    items: [{ name: "Bento Grid Activity", desc: "Full-screen responsive ad layout using Bootstrap grid utilities.", href: "https://chrizyl.github.io/builds/ACT001/", img: "assets/bentopreview.png" },
-           { name: "Portfolio Website", desc: "Designed in Figma; developed with HTML, CSS, and Bootstrap.", href: "https://chrizyl.github.io/", img: "assets/logo2.png" },
+           { name: "SVT Archive Activity", desc: "A simple website with JSON integration.", href: "https://chrizyl.github.io/builds/ACT002/", img: "assets/svtarchive.png" },
            { name: "More on GitHub", desc: "Browse the rest of my work.", href: "https://github.com/chrizyl", icon: "plus" }] },
  { title: "Exploring Works", alt: true, desc: "AquaSmile is a patient-friendly clinic web app with appointment booking and service pages. Clicket supports event browsing, seat selection, and ticket purchasing.", tags: ["PHP", "MySQL", "JavaScript"], count: "2 projects + more",
    items: [{ name: "AquaSmile Dental", desc: "Clinic site with appointment booking, service pages, and patient information.", href: "https://github.com/chrizyl", img: "assets/aqua.png" },
