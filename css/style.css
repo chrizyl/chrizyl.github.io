@@ -1031,6 +1031,8 @@ body.ready .portrait {
 }
 
 .cert-list {
+    display: grid;
+    gap: 1rem;
     padding: 1rem;
     border: 1px solid rgba(128, 0, 32, .14);
     border-radius: 22px;
@@ -1038,13 +1040,45 @@ body.ready .portrait {
     box-shadow: 0 18px 42px rgba(74, 12, 25, .08)
 }
 
-.cert-note {
-    font-size: .8rem;
-    line-height: 1.5;
+.cert-card {
+    overflow: hidden;
+    border: 1px solid rgba(128, 0, 32, .12);
+    border-radius: 16px;
+    background: #fffaf5;
+    box-shadow: 0 10px 24px rgba(74, 12, 25, .08)
+}
+
+.cert-preview {
+    display: grid;
+    min-height: 170px;
+    place-items: center;
+    padding: .75rem;
+    background: linear-gradient(145deg, #ead8d3, #f8efea)
+}
+
+.cert-preview img {
+    display: block;
+    width: 100%;
+    max-height: 340px;
+    object-fit: contain;
+    border-radius: 8px
+}
+
+.cert-copy {
+    padding: 1rem 1.1rem 1.1rem
+}
+
+.cert-copy h4 {
+    margin: 0 0 .35rem;
+    color: var(--wine-d);
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.15
+}
+
+.cert-copy time {
     color: var(--mute);
-    padding: .2rem .25rem .7rem;
-    margin: 0;
-    border-bottom: 1px solid rgba(128, 0, 32, .12)
+    font-size: .88rem
 }
 
 .about-carousel-title,
