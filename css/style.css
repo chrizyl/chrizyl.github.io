@@ -801,8 +801,18 @@ body.ready .portrait {
 .p-cards {
     position: absolute;
     inset: 0;
-    z-index: 2
+    z-index: 2;
+    transition: opacity .28s ease, transform .6s var(--ease), visibility 0s linear .28s
 }
+
+.pocket.expanded .p-cards {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(34px) scale(.88)
+}
+
+.pocket.expanded .p-cards { pointer-events: none }
+.pocket:not(.expanded) .p-cards { transition-delay: 0s, 0s, 0s }
 
 .p-card {
     position: absolute;
@@ -1612,18 +1622,6 @@ footer {
     transform: translateY(-6px)
 }
 
-.pocket.expanded .p-card:nth-child(1) {
-    transform: translateY(-31px) rotate(-1deg) scale(1.01)
-}
-
-.pocket.expanded .p-card:nth-child(2) {
-    transform: translate(-24%, -6px) rotate(-8deg) scale(.95)
-}
-
-.pocket.expanded .p-card:nth-child(3) {
-    transform: translate(24%, 0) rotate(8deg) scale(.93)
-}
-
 .pocket .ft span:last-child {
     transition: opacity .3s
 }
@@ -1767,7 +1765,7 @@ footer {
 @keyframes wc-fly {
     from {
         opacity: 0;
-        transform: translateY(-170px) scale(.5) rotate(-16deg)
+        transform: translateY(145px) scale(.62) rotate(8deg)
     }
 }
 
