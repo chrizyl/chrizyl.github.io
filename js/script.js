@@ -61,6 +61,7 @@ const folders = [
  { title: "Web Development", alt: false, desc: "Responsive Bootstrap layouts and a simple website with JSON integration.", tags: ["HTML5", "CSS3", "Bootstrap 5", "JSON"], count: "3 projects",
    items: [{ name: "Bento Grid Activity", desc: "Full-screen responsive ad layout using Bootstrap grid utilities.", href: "https://chrizyl.github.io/builds/ACT001/", img: "assets/bentopreview.png" },
            { name: "SVT Archive Activity", desc: "A simple website with JSON integration.", href: "https://chrizyl.github.io/builds/ACT002/", img: "assets/svtarchive.png" },
+           { name: "Curatora", label: "MIDTERM", desc: "Curatora is a digital archive that helps users explore and organize curated collections.", href: "https://chrizyl.github.io/builds/MIDTERM/", img: "assets/Curatora.png" },
            { name: "More on GitHub", desc: "Browse the rest of my work.", href: "https://github.com/chrizyl", icon: "plus" }] },
  { title: "Exploring Works", alt: true, desc: "AquaSmile is a patient-friendly clinic web app with appointment booking and service pages. Clicket supports event browsing, seat selection, and ticket purchasing.", tags: ["PHP", "MySQL", "JavaScript"], count: "2 projects + more",
    items: [{ name: "AquaSmile Dental", desc: "Clinic site with appointment booking, service pages, and patient information.", href: "https://github.com/chrizyl", img: "assets/aqua.png" },
@@ -132,7 +133,7 @@ pockets.forEach(p => {
       <div class="wc-track" tabindex="0" role="region" aria-label="${folder.title} projects">
         ${folder.items.map((item, index) => `<a class="wc tone-${index % palette.length} tilt-${index % 4}" draggable="false" href="${item.href}" ${ext(item.href)}>
           <span class="wc-in">
-            <span class="wc-num">${String(index + 1).padStart(2, '0')}</span>
+            <span class="wc-num">${item.label || String(index + 1).padStart(2, '0')}</span>
             <span class="wc-title">${item.name}</span>
             <span class="wc-desc">${item.desc}</span>
             <span class="wc-img${item.icon === 'plus' ? ' wc-img-plus' : ''}">${item.icon === 'plus' ? '<span aria-hidden="true">+</span>' : `<img draggable="false" src="${item.img}" alt="" loading="lazy">`}</span>
